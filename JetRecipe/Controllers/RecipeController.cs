@@ -1,6 +1,7 @@
 ﻿using JetRecipe.Api.Data;
 using JetRecipe.Api.Models;
 using JetRecipe.Api.Models.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor.Internal;
@@ -75,6 +76,7 @@ namespace JetRecipe.Api.Controllers
 			}
 			return ResponceDto;
 		}
+		[Authorize(Roles ="admin")]
 		[HttpPost]
 		public async Task<ResponceDto> CreateRecipe([FromBody]Recipe recipe)
 		{
@@ -98,6 +100,7 @@ namespace JetRecipe.Api.Controllers
 			return ResponceDto;
 		}
 		[HttpPut]
+		[Authorize(Roles = "admin")]
 		public async Task<ResponceDto> UpdateRecipe([FromBody]Recipe recipe)
 		{
 			try
@@ -115,6 +118,7 @@ namespace JetRecipe.Api.Controllers
 			return ResponceDto;
 		}
 		[HttpDelete]
+		[Authorize(Roles = "admin")]
 		[Route("/api/recipe/{id:int}")]
 		public async Task<ResponceDto> Delete(int id)
 		{
