@@ -93,7 +93,7 @@ namespace JetRecipe.Api.Controllers
 		}
 		[HttpDelete]
 		[Authorize(Roles = "admin")]
-		[Route("/api/recipe/{id:int}")]
+		[Route("/api/category/{id:int}")]
 		public async Task<ResponceDto> Delete(int id)
 		{
 			try
