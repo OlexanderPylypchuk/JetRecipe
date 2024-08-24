@@ -25,7 +25,7 @@ namespace JetRecipe.TgBot
 			client.DefaultRequestHeaders.Accept.Clear();
 			client.DefaultRequestHeaders.Accept.Add(
 				new MediaTypeWithQualityHeaderValue("application/json"));
-			_botClient = new TelegramBotClient("7509428339:AAGlp9-kDx54ABGOuORDBBRb5uTjDhbbwbM"); 
+			_botClient = new TelegramBotClient(Token.tgToken); 
 			_receiverOptions = new ReceiverOptions
 			{
 				AllowedUpdates = new[] 
